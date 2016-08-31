@@ -108,7 +108,8 @@ set(CXX_SOURCES
   vtkSQVortexFilter.cxx
   )
 
-if (CUDA_FOUND AND SQTK_CUDA)
+#if (CUDA_FOUND AND SQTK_CUDA)
+if (OFF AND SQTK_CUDA)
   #message(STATUS "SQTK Including CUDA accelerated filters.")
   #message(STATUS "SQTK Cuda ${CUDA_VERSION_STRING} found.")
   set(CUDA_NVCC_FLAGS "-arch=sm_20;--compiler-options;-fPIC" CACHE STRING "nvcc flags")
@@ -157,7 +158,8 @@ set_source_files_properties(
 
 vtk_module_library(vtkSciberQuest ${CXX_SOURCES})
 
-if (SQTK_CUDA AND CUDA_FOUND)
+#if (SQTK_CUDA AND CUDA_FOUND)
+if (SQTK_CUDA AND OFF)
   target_link_libraries(vtkSciberQuest
   LINK_PRIVATE ${CUDA_LIBRARIES})
 endif()
