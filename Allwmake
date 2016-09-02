@@ -359,6 +359,20 @@ else
     echo "    optional component was not found"
 fi
 
+# MUI is optional
+echo ========================================
+echo Detect MUI
+if [ -r MUI/mui.h ]
+then
+(
+    echo "    MUI headers detected"
+    export MUI_ARCH_PATH=$WM_THIRD_PARTY_DIR/MUI    
+)
+else
+    echo "    optional component was not found"
+fi
+
+
 echo
 echo ========================================
 echo Done ThirdParty Allwmake
