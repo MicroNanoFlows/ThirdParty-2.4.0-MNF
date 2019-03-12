@@ -89,16 +89,23 @@ done
 #   MUI_DIR        : location of the installed program
 
 MUI_SOURCE_DIR=$WM_THIRD_PARTY_DIR/$muiPACKAGE
+if [ ! -d "$installBASE" ]
+then
+mkdir $installBASE
+fi
 MUI_ARCH_PATH=$installBASE/$muiPACKAGE
 MUI_DIR=$MUI_ARCH_PATH
-(	
+(
 	# Remove pre-existing MUI install directory
-	rm $MUI_DIR
+	if [ -d "$MUI_DIR" ]
+	then
+	rm -r $MUI_DIR
+	fi
 	mkdir $MUI_DIR
-	
+
 	# Copy to install directory
 	cp -r $MUI_SOURCE_DIR/* $MUI_DIR/
-	
+
     echo "Done MUI"
 )
 
