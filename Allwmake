@@ -367,7 +367,7 @@ then
 (
     if [ -r $MUI_ARCH_PATH/mui.h ]
     then
-        echo "    MUI headers in $MUI_ARCH_PATH"      
+        echo "    MUI headers in $MUI_ARCH_PATH"
     else
         ./makeMUI
     fi
